@@ -1,0 +1,14 @@
+<main class="min-h-screen px-4 py-6 flex flex-col items-center bg-gray-50">
+
+  <section class="controls flex justify-center items-center gap-4 mt-6">
+    <app-unit-toggle [unit]="unit" (unitChange)="toggleUnit($event)"></app-unit-toggle>
+    <app-time-toggle [showSunrise]="showSunrise" (toggle)="toggleTimeView()"></app-time-toggle>
+  </section>
+
+  <section class="card-grid grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-7xl mt-6">
+    <app-weather-card *ngFor="let weather of weatherData" [weather]="weather" [trend]="trends[weather.name]"
+      [showSunrise]="showSunrise" [unit]="unit">
+    </app-weather-card>
+  </section>
+
+</main>

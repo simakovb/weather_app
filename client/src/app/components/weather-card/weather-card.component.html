@@ -1,0 +1,51 @@
+<div
+  class="weather-card max-w-sm p-6 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-105 cursor-pointer"
+  >
+
+  <h3 class="text-xl font-semibold mb-3">{{ weather.name }}</h3>
+
+  <div class="temp text-3xl font-bold mb-2 h-10 relative overflow-hidden">
+
+    <ng-container [ngSwitch]="unit">
+      <div *ngSwitchCase="'metric'" @unitChange class="absolute inset-0 flex items-center gap-2">
+        <span class="flex items-center gap-1">
+          {{ weather.main.temp }} <span>°C</span>
+        </span>
+        <span class="text-2xl" [title]="trend" [ngClass]="{
+          'text-green-500': trend === 'rising',
+          'text-red-500': trend === 'falling',
+          'text-gray-400': trend === 'stable'
+        }">
+          {{ getTrendIcon() }}
+        </span>
+      </div>
+
+      <div *ngSwitchCase="'imperial'" @unitChange class="absolute inset-0 flex items-center gap-2">
+        <span class="flex items-center gap-1">
+          {{ weather.main.temp }} <span>°F</span>
+        </span>
+        <span class="text-2xl" [title]="trend" [ngClass]="{
+          'text-green-500': trend === 'rising',
+          'text-red-500': trend === 'falling',
+          'text-gray-400': trend === 'stable'
+        }">
+          {{ getTrendIcon() }}
+        </span>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="description flex items-center mb-4 text-gray-700 w-full">
+    <img class="w-15 h-15" [src]="'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '.png'" alt="icon" />
+    <span class="capitalize">{{ weather.weather[0].description }}</span>
+  </div>
+
+
+  <div class="time text-sm text-yellow-600 mb-3 h-5 relative overflow-hidden">
+    <div class="absolute inset-0 transition-opacity duration-300" [@sunTimeChange]="showSunrise ? 'sunrise' : 'sunset'">
+      <span *ngIf="showSunrise">🌅 {{ formatUnixTime(weather.sys.sunrise) }}</span>
+      <span *ngIf="!showSunrise">🌇 {{ formatUnixTime(weather.sys.sunset) }}</span>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,64 @@
+[
+  {
+    "ContainingType": "WeatherApp.Controllers.UnitController",
+    "Method": "SetUnit",
+    "RelativePath": "unit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "WeatherApp.Data.UnitPreference",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeatherApp.Controllers.UnitController",
+    "Method": "GetUnit",
+    "RelativePath": "unit",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeatherApp.Controllers.WeatherController",
+    "Method": "GetAllWeather",
+    "RelativePath": "weather",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "unit",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeatherApp.Controllers.WeatherController",
+    "Method": "GetForecast",
+    "RelativePath": "weather/forecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeatherApp.Controllers.WeatherController",
+    "Method": "GetTrends",
+    "RelativePath": "weather/trend",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
